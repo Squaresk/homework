@@ -1,0 +1,31 @@
+@startuml
+
+skin rose
+
+class Клиент{
+  nameClient: string
+  phoneNumber: int
+  Позвонить в магазин()
+  Оформить заказ()
+}
+class Продавец  {
+  nameSeller: string
+  Опрос клиента()
+  Взаимодействие с ИС()
+}
+class Заказ  {
+  idOrder: int
+  nameClient: string
+  condition: string
+}
+class "Информационная система (ИС)"{
+  dataBaseOfClient: string
+  dataBaseOfOrders: string
+  Регистрация клиента()
+  Редактирование информации о клиенте в БД()
+}
+
+Клиент -- Заказ
+Продавец -- Заказ
+Заказ -- "Информационная система (ИС)"
+Продавец -- "Информационная система (ИС)"
